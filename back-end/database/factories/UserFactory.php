@@ -13,10 +13,13 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $gender = $this->faker->randomElement(['male', 'female',  null]);
+
         return [
-            'first_name' => $this->faker->name(),
-            'last_name' => $this->faker->name(),
+            'first_name' => $this->faker->firstName($gender),
+            'last_name' => $this->faker->lastName(),
             'email' => $this->faker->unique()->safeEmail(),
+            'gender' => ($gender === null) ? "other" : $gender,
         ];
     }
 }

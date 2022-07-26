@@ -21,6 +21,7 @@ class User extends Model
         'first_name',
         'last_name',
         'email',
+        'gender',
         'created_at',
         'updated_at',
     ];
