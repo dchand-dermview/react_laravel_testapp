@@ -11,9 +11,6 @@ class User extends Model
 
     use HasFactory;
 
-    // makes the default created_at & updated_at columns not be expected
-    public $timestamps = false;
-
     protected $table = 'users';
 
     /**
@@ -24,5 +21,7 @@ class User extends Model
         'first_name',
         'last_name',
         'email',
+        'created_at',
+        'updated_at',
     ];
 }
