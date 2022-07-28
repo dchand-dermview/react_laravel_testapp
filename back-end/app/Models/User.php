@@ -23,6 +23,7 @@ class User extends Model
         'user_name',
         'email',
         'gender',
+        'dob',
         'created_at',
         'updated_at',
     ];

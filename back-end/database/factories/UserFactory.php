@@ -21,6 +21,7 @@ class UserFactory extends Factory
             'username' => $this->faker->userName(),
             'email' => $this->faker->unique()->safeEmail(),
             'gender' => ($gender === null) ? "other" : $gender,
+            'dob' => $this->faker->dateTime(),
         ];
     }
 }

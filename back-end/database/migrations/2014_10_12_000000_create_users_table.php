@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('email');
             $table->string('gender');
+            $table->timestamp('dob');
             $table->timestamps();
         });
     }
