@@ -15,13 +15,16 @@ class UserFactory extends Factory
     {
         $gender = $this->faker->randomElement(['male', 'female',  null]);
 
+        $startDate = '1970-00-00 00:00:00';
+        $endDate = '2004-01-07 00:00:00';
+
         return [
             'first_name' => $this->faker->firstName($gender),
             'last_name' => $this->faker->lastName(),
             'username' => $this->faker->userName(),
             'email' => $this->faker->unique()->safeEmail(),
             'gender' => ($gender === null) ? "other" : $gender,
-            'dob' => $this->faker->dateTime(),
+            'dob' => $this->faker->dateTimeBetween($startDate, $endDate),
         ];
     }
 }
