@@ -13,7 +13,7 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        $gender = $this->faker->randomElement(['male', 'female',  null]);
+        $gender = $this->faker->randomElement(['male', 'female',  "other"]);
 
         $startDate = '1970-00-00 00:00:00';
         $endDate = '2004-01-07 00:00:00';
@@ -23,7 +23,7 @@ class UserFactory extends Factory
             'last_name' => $this->faker->lastName(),
             'username' => $this->faker->userName(),
             'email' => $this->faker->unique()->safeEmail(),
-            'gender' => ($gender === null) ? "other" : $gender,
+            'gender' => $gender,
             'dob' => $this->faker->dateTimeBetween($startDate, $endDate),
         ];
     }
