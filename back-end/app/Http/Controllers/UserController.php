@@ -47,6 +47,17 @@ class UserController extends BaseController
             return response()->json($Users)->setStatusCode(500);
         }
     }
+
+    public function getUserByUsername($username) {
+        try {
+            $Users = UserModel::where('username', '=', $username)->get();
+            return response()->json($Users)->setStatusCode(200);
+        } catch (Exception $e) {
+            return response()->json($Users)->setStatusCode(500);
+        }
+    }
+
+
 }
 
 /*
