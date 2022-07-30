@@ -49,6 +49,27 @@ class UserController extends BaseController
     }
 }
 
+/*
+TODO
+
+post create
+patch update
+get a given page - {{base_url}}/{{users_endpoint}}?page={{page}}&limit={{limit}}
+get filtering by email - {{base_url}}/{{users_endpoint}}?email={{email}}
+get filtering by username - {{base_url}}/{{users_endpoint}}?username={{username}}
+get filtering by email and username - {{base_url}}/{{users_endpoint}}?email={{email}}&username={{username}}
+
+
+add user status'
+get by id - {{base_url}}/{{statuses_endpoint}}/{{status_id}}
+get all - {{base_url}}/{{statuses_endpoint}}
+
+
+add user role
+
+*/
+
+
 // Test database connection
 //        if(DB::connection()->getDatabaseName())
 //        {
