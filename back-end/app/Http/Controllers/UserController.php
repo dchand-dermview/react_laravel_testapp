@@ -25,15 +25,17 @@ class UserController extends BaseController
     public function getUsers(Request $request)
     {
         try {
-            $Users = UserModel::get();
+            $query = DB::table('users');
 
             if ($request->email) {
-                $Users = UserModel::where('email', '=', $request->email)->get();
+                $query->where('email', '=', $request->email);
             }
 
             if ($request->username) {
-                $Users = UserModel::where('username', '=', $request->username)->get();
+                $query->where('username', '=', $request->username);
             }
+
+            $Users = $query->get();
 
             return response()->json($Users)->setStatusCode(200);
         } catch (Exception $e) {
