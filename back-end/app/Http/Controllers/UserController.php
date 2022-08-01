@@ -24,26 +24,17 @@ class UserController extends BaseController
      */
     public function getUsers(Request $request)
     {
-        if ($request->email) {
-            try {
-                $Users = UserModel::where('email', '=', $request->email)->get();
-                return response()->json($Users)->setStatusCode(200);
-            } catch (Exception $e) {
-                return response()->json($Users)->setStatusCode(500);
-            }
-        }
-
-        if ($request->username) {
-            try {
-                $Users = UserModel::where('username', '=', $request->username)->get();
-                return response()->json($Users)->setStatusCode(200);
-            } catch (Exception $e) {
-                return response()->json($Users)->setStatusCode(500);
-            }
-        }
-
         try {
             $Users = UserModel::get();
+
+            if ($request->email) {
+                $Users = UserModel::where('email', '=', $request->email)->get();
+            }
+
+            if ($request->username) {
+                $Users = UserModel::where('username', '=', $request->username)->get();
+            }
+
             return response()->json($Users)->setStatusCode(200);
         } catch (Exception $e) {
             return response()->json($Users)->setStatusCode(500);
