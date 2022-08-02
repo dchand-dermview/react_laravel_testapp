@@ -20,7 +20,7 @@ class User extends Model
         'id',
         'first_name',
         'last_name',
-        'user_name',
+        'username',
         'email',
         'gender',
         'dob',

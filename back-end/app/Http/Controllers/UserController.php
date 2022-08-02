@@ -38,11 +38,39 @@ class UserController extends BaseController
             $Users = $query->get();
 
             return response()->json($Users)->setStatusCode(200);
-        } catch (Exception $e) {
-            return response()->json($Users)->setStatusCode(500);
+        } catch (Exception $error) {
+            return response()->json($error)->setStatusCode(500);
         }
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse|object
+     */
+    public function createUser(Request $request)
+    {
+        try {
+            $bodyContent = json_decode($request->getContent());
+
+            $User = UserModel::create([
+                'first_name' => $bodyContent->first_name,
+                'last_name' => $bodyContent->last_name,
+                'username' => $bodyContent->username,
+                'email' => $bodyContent->email,
+                'gender' => $bodyContent->gender,
+                'dob' => $bodyContent->dob,
+            ]);
+
+            $User->save();
+            return response()->json($User)->setStatusCode(200);
+        } catch (Exception $error) {
+            return response()->json($error)->setStatusCode(500);
+        }
+    }
+
+    /**
+     * @return \Illuminate\Http\JsonResponse|object
+     */
     public function getRandomUser()
     {
         $randomInt = rand(1, 100);
@@ -54,6 +82,10 @@ class UserController extends BaseController
         }
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse|object
+     */
     public function getUserById($id)
     {
         try {
