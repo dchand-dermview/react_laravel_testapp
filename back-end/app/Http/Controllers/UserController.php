@@ -69,6 +69,32 @@ class UserController extends BaseController
     }
 
     /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse|object
+     */
+    public function updateUser(Request $request)
+    {
+        try {
+            $bodyContent = json_decode($request->getContent());
+
+            DB::table('users')
+                ->where('id', 3)
+                ->update([
+                    'first_name' => $bodyContent->first_name,
+                    'last_name' => $bodyContent->last_name,
+                    'username' => $bodyContent->username,
+                    'email' => $bodyContent->email,
+                    'gender' => $bodyContent->gender,
+                    'dob' => $bodyContent->dob,]
+                );
+
+            return response()->json("updated successfully")->setStatusCode(200);
+        } catch (Exception $error) {
+            return response()->json($error)->setStatusCode(500);
+        }
+    }
+
+    /**
      * @return \Illuminate\Http\JsonResponse|object
      */
     public function getRandomUser()
@@ -118,11 +144,13 @@ add user status'
 get by id - {{base_url}}/{{statuses_endpoint}}/{{status_id}}
 get all - {{base_url}}/{{statuses_endpoint}}
 
+add user roles'
+get by id - {{base_url}}/{{statuses_endpoint}}/{{status_id}}
+get all - {{base_url}}/{{statuses_endpoint}}
 
 add user role
 
 */
-
 
 // Test database connection
 //        if(DB::connection()->getDatabaseName())

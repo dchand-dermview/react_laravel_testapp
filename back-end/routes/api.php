@@ -32,4 +32,5 @@ Route::group(['prefix'=>'users'], function() {
     Route::get('random', ['uses' => 'App\Http\Controllers\UserController@getRandomUser']);
     Route::get('{id}', ['uses' => 'App\Http\Controllers\UserController@getUserById'])->where('id', '[0-9]+');
     Route::post('/', ['uses' => 'App\Http\Controllers\UserController@createUser']);
+    Route::patch('/', ['uses' => 'App\Http\Controllers\UserController@updateUser']);
 });
