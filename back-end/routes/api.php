@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 //const UserController = require('../controllers/users.controller')
 
 /*
@@ -27,11 +28,23 @@ use Illuminate\Support\Facades\Route;
 //Route::get('users', ['uses' => 'App\Http\Controllers\UserController@getUsers']);
 //Route::get('users', ['uses' => 'App\Http\Controllers\UserController@getUsers']);
 
-Route::group(['prefix'=>'users'], function() {
-    Route::get('/', ['uses' => 'App\Http\Controllers\UserController@getUsers']);
-    Route::get('random', ['uses' => 'App\Http\Controllers\UserController@getRandomUser']);
-    Route::get('{id}', ['uses' => 'App\Http\Controllers\UserController@getUserById'])->where('id', '[0-9]+');
-    Route::post('/', ['uses' => 'App\Http\Controllers\UserController@createUser']);
-    Route::patch('/', ['uses' => 'App\Http\Controllers\UserController@updateUser']);
-    Route::delete('{id}', ['uses' => 'App\Http\Controllers\UserController@deleteUser']);
-});
+Route::group(
+    [
+        'prefix' => 'users'
+    ],
+    static function () {
+        Route::get('/', ['uses' => 'App\Http\Controllers\UserController@getUsers']);
+        Route::post('/', ['uses' => 'App\Http\Controllers\UserController@createUser']);
+        Route::patch('/', ['uses' => 'App\Http\Controllers\UserController@updateUser']);
+        Route::get('random', ['uses' => 'App\Http\Controllers\UserController@getRandomUser']);
+        Route::group(
+            [
+                'prefix' => '/{id}',
+            ],
+            static function () {
+                Route::get('', ['uses' => 'App\Http\Controllers\UserController@getUserById'])->where('id', '[0-9]+');
+                Route::delete('', ['uses' => 'App\Http\Controllers\UserController@deleteUser']);
+            }
+        );
+    }
+);
