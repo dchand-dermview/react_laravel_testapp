@@ -24,6 +24,8 @@ class User extends Model
         'email',
         'gender',
         'dob',
+        'role_id',
+        'status_id',
         'created_at',
         'updated_at',
     ];

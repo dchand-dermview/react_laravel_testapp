@@ -25,6 +25,8 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'gender' => $gender,
             'dob' => $this->faker->dateTimeBetween($startDate, $endDate),
+            'role_id' => $this->faker->numberBetween(0, 10),
+            'status_id' =>  $this->faker->numberBetween(0, 10)
         ];
     }
 }

@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->string('gender');
             $table->timestamp('dob');
+            $table->integer('role_id');
+            $table->integer('status_id');
             $table->timestamps();
         });
     }
