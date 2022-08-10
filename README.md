@@ -18,14 +18,6 @@
 ## About The Project
 app to mess around with using React to parse and display data from laravel endpoints
 
-
-## Built With
-
-* [![React][React.js]][React-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-
-
 ## Getting Started
 
 Personal Notes for running on my local WSL subsystem:
