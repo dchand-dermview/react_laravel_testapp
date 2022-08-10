@@ -1,5 +1,24 @@
 # react_laravel_testapp
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+  </ol>
+</details>
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
 app to mess around with using React to parse and display data from laravel endpoints
+
+## Getting Started
 
 Personal Notes for running on my local WSL subsystem:
 
