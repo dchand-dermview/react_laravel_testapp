@@ -13,16 +13,17 @@ class StatusFactory extends Factory
      */
     public function definition()
     {
-
-        $tag = $this->faker->randomElement(['USER_ACTIVE', 'USER_DISABLED',  "USER_REJECTED"]);
-        $description = $this->faker->randomElement(['Active', 'Disabled',  "Rejected"]);
-
-
-//        $data = $this->faker->randomElement(array("USER_ACTIVE","Active"), array("USER_DISABLED","Disabled"), array("USER_REJECTED","Rejected"));
+        $data = $this->faker->randomElement(
+            array(
+                array("USER_ACTIVE", "Active"),
+                array("USER_DISABLED", "Disabled"),
+                array("USER_REJECTED", "Rejected")
+            )
+        );
 
         return [
-            'tag' => $tag,
-            'description' => $description,
+            'tag' => $data[0],
+            'description' => $data[1],
         ];
     }
 }
