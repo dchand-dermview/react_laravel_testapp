@@ -1,5 +1,4 @@
 # react_laravel_testapp
-test
 
 <!-- TABLE OF CONTENTS -->
 <details>
