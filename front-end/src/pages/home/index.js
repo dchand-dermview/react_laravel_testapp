@@ -19,7 +19,7 @@ class Home extends React.Component {
         super(props);
 
         this.state = {
-            totalReactPackages: null
+            totalReactPackages: []
         };
     }
 
@@ -34,9 +34,17 @@ class Home extends React.Component {
         return (
             <div className="card text-center m-3">
                 <h5 className="card-header">Simple GET Request</h5>
-                <div className="card-body">
-                    Total react packages: {JSON.stringify(totalReactPackages)}
-                </div>
+                {totalReactPackages.map((data, key) => {
+                    return (
+                        <div key={key}>
+                            {data.score.final +
+                            " , " +
+                            data.score.final +
+                            " ," +
+                            data.searchScore}
+                        </div>
+                    );
+                })}
             </div>
         );
     }
