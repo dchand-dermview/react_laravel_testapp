@@ -1,19 +1,5 @@
 import React from "react";
 
-
-// function Home() {
-//     fetch('http://127.0.0.1:8000/api/users')
-//         .then(response => response.json())
-//         .then(data => this.setState({users: data}));
-//
-//     return (
-//         <div>
-//             <h1>THIS IS THE HOME PAGE</h1>
-//             <h2>It is {this.state.users}.</h2>
-//         </div>
-//     );
-// }
-
 class Home extends React.Component {
     constructor(props) {
         super(props);
