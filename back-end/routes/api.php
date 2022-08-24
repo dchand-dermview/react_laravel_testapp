@@ -30,8 +30,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(
     [
-        'prefix' => 'users'
+        'prefix' => 'users',
+        'middleware' => ['throttle:30,1'],
     ],
+
     static function () {
         Route::get('/', ['uses' => 'App\Http\Controllers\UserController@getUsers']);
         Route::post('/', ['uses' => 'App\Http\Controllers\UserController@createUser']);
