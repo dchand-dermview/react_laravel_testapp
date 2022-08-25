@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Roles;
+use App\Models\Role;
 use Illuminate\Database\Seeder;
 
 class RolesTableSeeder extends Seeder
@@ -14,7 +14,7 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        Roles::factory()
+        Role::factory()
             ->count(3)
             ->create();
     }

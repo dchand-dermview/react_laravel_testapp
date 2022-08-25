@@ -33,7 +33,6 @@ Route::group(
         'prefix' => 'users',
         'middleware' => ['throttle:30,1'],
     ],
-
     static function () {
         Route::get('/', ['uses' => 'App\Http\Controllers\UserController@getUsers']);
         Route::post('/', ['uses' => 'App\Http\Controllers\UserController@createUser']);
@@ -50,3 +49,14 @@ Route::group(
         );
     }
 );
+
+
+Route::group(
+    [
+        'prefix' => 'file',
+        'middleware' => ['throttle:10,1'],
+    ],
+    function () {
+        Route::get('/', ['uses' => 'App\Http\Controllers\FileController@getFile']);
+        Route::get('/{id}', ['uses' => 'App\Http\Controllers\FileController@getFileById'])->where('id', '[0-9]+');
+    });
