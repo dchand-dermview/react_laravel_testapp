@@ -6,19 +6,24 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li>
+      <a href="getting-started">Getting Started</a>
+    </li>
+    <li>
+      <a href="#troubleshooting">Troubleshooting</a>
+    </li>
+    <li>
+      <a href="#todo">Todo</a>
+    </li>
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+# About The Project
 app to mess around with using React to parse and display data from laravel endpoints
 
-## Getting Started
+# Getting Started
 
 Personal Notes for running on my local WSL subsystem:
 
@@ -36,7 +41,7 @@ To deploy the back-end server:
 
 
 
-## Trouble shooting
+# Troubleshooting
 
 * If getting driver error when running migrations or trying to make a request to an endpoint the following command may resolve this: `sudo apt-get install php-mysql`
 
